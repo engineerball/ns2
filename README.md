@@ -1,10 +1,9 @@
 NS2 Little Project 
 ------------------
 
-1. AODV vs. DSR
-2. AODV ที่ Hello Interval = 0.25, 0.5, 1, และ 2 วินาที
-3. DSR vs. DSDV
-4. AODV vs. DSDV
+1. AODV
+2. DSR
+3. DSDV
 
 Condition
 - Network ขนาด 1.5km x 1.5km
