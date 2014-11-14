@@ -15,3 +15,10 @@ time = 0, 15, 30, 60, 150, 300 วินาที และความเร็
 - จ านวนโหนด 25, 50, 100
 - ให้ run simulation เป็นเวลา 5 นาที (simulated second)
 - ให้ output ออกมาที่ myoutput.tr โดยให้มี trace ของ routing protocol ออกมาด้วย
+
+How to
+- ./make-traffic.sh
+- ./make-scenario.sh
+- ./run-aodv.sh
+- ./run-dsdv.sh
+- ./run-dsr.sh
