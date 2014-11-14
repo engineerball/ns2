@@ -8,8 +8,10 @@ if [ ! -d scenario ]; then
 fi
 
 
-for i in {0..10}; do
-	${setdest_bin} -n 50 -p ${i}00 -s 1 -M 13.8888889 -t 900 -x 1500 -y 1500 > scenario/scen-50-${i}00;
+for i in 0 15 30 60 150 300; do
+	for j in 25 50 100; do
+		${setdest_bin} -n ${j} -p ${i} -s 1 -M 13.8888889 -t 300 -x 1500 -y 1500 > scenario/scen-${j}-${i};
+	done
 done
 
 ls -la scenario

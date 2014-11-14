@@ -8,8 +8,8 @@ if [ ! -d traffic ]; then
 fi
 
 
-for i in {01..20}; 
-	do ns ${cbrgen_bin}  -type cbr -nn 40 -seed $RANDOM -mc 5 -rate 5.0 > traffic/cbr-40-${i}; 
+for i in 25 50 100; 
+	do ns ${cbrgen_bin}  -type cbr -nn 40 -seed $RANDOM -mc 5 -rate 5.0 > traffic/cbr-${i}; 
 done
 
 ls -la traffic

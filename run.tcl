@@ -10,15 +10,15 @@ set opt(nn)             50                         ;# number of mobilenodes
 set opt(rp)             AODV                       ;# routing protocol 
 set opt(x)              1500   			   ;# X dimension of topography 
 set opt(y)              1500  			   ;# Y dimension of topography   
-set opt(stop)		900
+set opt(stop)		300
 set opt(scen)           "scenario/scen-50-000"
 set opt(tfc)            "traffic/cbr-40-01"
 
 
 
-if { $argc != 8 } {
+if { $argc != 10 } {
         puts "Wrong no. of cmdline args."
-        puts "Usage: ns run.tcl -scen <scen> -tfc <tfc> -tr <tr> -rpr <rpr>"
+        puts "Usage: ns run.tcl -scen <scen> -tfc <tfc> -tr <tr> -rpr <rpr> -nn <nn>"
         exit 0
 }
 
@@ -32,15 +32,19 @@ if { $argc != 8 } {
 
         set opt(scen) [lindex $argv 1]
         set opt(tfc) [lindex $argv 3]
+	set opt(nn) [lindex $argv 9]
 
         if {$opt(rpr) == 1} {
         set opt(adhocRouting)   DSR
 #        set opt(ifq)    CMUPriQueue
        set opt(ifq)    Queue/DropTail/PriQueue
-        } else {
+        } elseif {$opt(rpr) == 2 } {
         set opt(adhocRouting)   AODV
         set opt(ifq) Queue/DropTail/PriQueue
-        }
+        } else {
+	set opt(adhocRouting)   DSDV
+        set opt(ifq) Queue/DropTail/PriQueue
+	}
 
         puts $opt(scen)
         puts $opt(tfc)
@@ -55,7 +59,7 @@ if { $argc != 8 } {
       set tracefd [open $opt(tr) w]
       $ns_ trace-all $tracefd
 
-      set namtrace [open aodv.nam w]
+      set namtrace [open $opt(adhocRouting).nam w]
       $ns_ namtrace-all-wireless $namtrace  $opt(x) $opt(y)
 
       set topo [new Topography]
@@ -128,5 +132,5 @@ $ns_ at 0.0 "$ns_ set-animation-rate 12.5ms"
                    }
 
       puts "Starting Simulation........"
-      $ns_ at 25.0 "stop"
+      #$ns_ at 25.0 "stop"
       $ns_ run

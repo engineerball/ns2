@@ -4,11 +4,11 @@ if [ ! -d 'dsdv-tr' ]; then
 	mkdir dsdv-tr
 fi
 
-for i in {0..10} ;
+for i in 0 15 30 60 150 300;
 do 
-	for j in {01..20};
+	for j in 25 50 100;
 	do
-	  ns run.tcl -scen scenario/scen-50-${i}00 -tfc traffic/cbr-40-${j} -tr dsdv-tr/dsdv-${i}00-${j}.tr -rpr 1
+	  ns run.tcl -scen scenario/scen-${j}-${i} -tfc traffic/cbr-${j} -tr dsdv-tr/dsdv-${j}-${i}.tr -rpr 3 -nn ${j}
 	done
 
 done
