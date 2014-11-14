@@ -16,6 +16,10 @@ time = 0, 15, 30, 60, 150, 300 วินาที และความเร็
 - ให้ run simulation เป็นเวลา 5 นาที (simulated second)
 - ให้ output ออกมาที่ myoutput.tr โดยให้มี trace ของ routing protocol ออกมาด้วย
 
+Required
+- ns2 http://www.isi.edu/nsnam/ns/
+
+
 How to
 - ./make-traffic.sh
 - ./make-scenario.sh
