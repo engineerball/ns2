@@ -35,8 +35,8 @@ if { $argc != 8 } {
 
         if {$opt(rpr) == 1} {
         set opt(adhocRouting)   DSR
-        set opt(ifq)    CMUPriQueue
-#       set opt(ifq)    Queue/DropTail/PriQueue
+#        set opt(ifq)    CMUPriQueue
+       set opt(ifq)    Queue/DropTail/PriQueue
         } else {
         set opt(adhocRouting)   AODV
         set opt(ifq) Queue/DropTail/PriQueue
