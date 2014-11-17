@@ -9,7 +9,7 @@ fi
 
 
 for i in 25 50 100; 
-	do ns ${cbrgen_bin}  -type cbr -nn 40 -seed $RANDOM -mc 5 -rate 5.0 > traffic/cbr-${i}; 
+	do ns ${cbrgen_bin}  -type cbr -nn ${i} -seed $RANDOM -mc 5 -rate 5.0 > traffic/cbr-${i}; 
 done
 
 ls -la traffic
