@@ -43,7 +43,7 @@ if { $argc != 10 } {
         set opt(adhocRouting)   AODV
         set opt(rp)   AODV
         set opt(ifq) Queue/DropTail/PriQueue
-        } else {
+        } elseif {$opt(rpr) == 3 } {
 	set opt(adhocRouting)   DSDV
 	set opt(rp)   DSDV
         set opt(ifq) Queue/DropTail/PriQueue
@@ -52,8 +52,7 @@ if { $argc != 10 } {
         puts $opt(scen)
         puts $opt(tfc)
         puts $opt(tr)
-
-        puts $opt(adhocRouting)
+        puts $opt(rp)
 
 ### Setting The Simulator Objects
                   
@@ -62,8 +61,8 @@ if { $argc != 10 } {
       set tracefd [open $opt(tr) w]
       $ns_ trace-all $tracefd
 
-      set namtrace [open $opt(adhocRouting).nam w]
-      $ns_ namtrace-all-wireless $namtrace  $opt(x) $opt(y)
+#      set namtrace [open $opt(adhocRouting).nam w]
+#      $ns_ namtrace-all-wireless $namtrace  $opt(x) $opt(y)
 
       set topo [new Topography]
       $topo load_flatgrid $opt(x) $opt(y)
@@ -83,7 +82,7 @@ if { $argc != 10 } {
                    -topoInstance $topo \
                    -agentTrace ON \
                    -routerTrace ON \
-                   -macTrace ON \
+                   -macTrace OFF \
                    -movementTrace ON \
                    -channel $chan_1_
 
