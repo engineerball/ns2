@@ -11,11 +11,11 @@ do
 	for j in 0 15 30 60 150 300;
 	do
           echo -en ${red}'AODV\tn='${i}', p='${j}';\t' 
-	  gawk -f awk-scripts/througput.awk aodv-tr/aodv-${i}-${j}.tr 
+	  gawk -f awk-scripts/packets.awk aodv-tr/aodv-${i}-${j}.tr 
           echo -en ${NC}'DSR\tn='${i}', p='${j}';\t' 
-	  gawk -f awk-scripts/througput.awk dsr-tr/dsr-${i}-${j}.tr 
+	  gawk -f awk-scripts/packets.awk dsr-tr/dsr-${i}-${j}.tr 
 	  echo -en 'DSDV\tn='${i}', p='${j}';\t'
-	  gawk -f awk-scripts/througput.awk dsdv-tr/dsdv-${i}-${j}.tr 
+	  gawk -f awk-scripts/packets.awk dsdv-tr/dsdv-${i}-${j}.tr 
 	done
 
 done
