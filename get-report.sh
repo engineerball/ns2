@@ -2,7 +2,7 @@
 red='\033[0;31m'
 NC='\033[0m'
 
-report=( througput packets pdr )
+report=( througput packets pdr overhead )
 round=$1
 
 for r in ${report[@]}
