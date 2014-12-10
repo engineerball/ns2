@@ -1,7 +1,7 @@
 #!/bin/sh
 
 BACKUP='backup'
-if [ !d ${BACKUP} ]
+if [ ! -d ${BACKUP} ]
 then
 	mkdir ${BACKUP}
 fi
