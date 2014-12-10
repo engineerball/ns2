@@ -1,7 +1,7 @@
 #!/bin/sh
 
 BACKUP='backup'
-if [ !d 'report-througput']
+if [ !d ${BACKUP} ]
 then
 	mkdir ${BACKUP}
 fi
@@ -14,7 +14,7 @@ for round in {1..10}; do
 	sh run-dsdv.sh
 	sh run-dsr.sh
 	sh get-report.sh ${round}	
-	tar czf ${BACKUP}/round-${round}.tar.gz scenario traffic
+	tar czf ${BACKUP}/round-${round}.tar.gz scenario traffic aodv-tr dsdv-tr dsr-tr
 	rm -Rf aodv-tr dsdv-tr dsr-tr scenario traffic
 	
 done
