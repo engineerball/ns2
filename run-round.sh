@@ -1,6 +1,11 @@
 #!/bin/sh
 
 BACKUP='backup'
+if [ !d 'report-througput']
+then
+	mkdir ${BACKUP}
+fi
+	
 for round in {1..10}; do
 	echo 'Round '${round}
 	sh make-scenario.sh
