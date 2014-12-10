@@ -12,4 +12,5 @@ if (($1 == "s" || $1 == "f") && $4 == "RTR" && ( $7 =="AODV" || $7 =="message" |
 
 END{
 printf("NRL = %.3f", routing_packets/recvs);
+printf("\n");
 }

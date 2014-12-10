@@ -6,7 +6,7 @@ LASTMODIFY=`stat -c %Y ${FILENAME}`
 
 TIMEDIFF=`expr ${CURRENT} - ${LASTMODIFY}`
 
-if [ ${TIMEDIFF} -gt 120 ]
+if [ ${TIMEDIFF} -gt 90 ]
 then
 	kill ${PID}
 fi
